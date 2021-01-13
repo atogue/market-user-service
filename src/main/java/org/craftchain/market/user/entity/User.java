@@ -16,5 +16,7 @@ import javax.persistence.Table;
 public class User {
     @Id
     private int userId;
-    private String name, email, country;
+    private String name;
+    private String email;
+    private String country;
 }
