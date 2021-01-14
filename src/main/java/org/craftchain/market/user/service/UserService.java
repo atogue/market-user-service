@@ -20,7 +20,7 @@ public class UserService {
         User user = request.getUser();
         request.getOrder().setClientId(user.getUserId());
         // rest call to order service
-        TransactionResponse response = template.postForObject("http://localhost:9192/order/bookOrder", request, TransactionResponse.class);
+        TransactionResponse response = template.postForObject("http://ORDER-SERVICE/order/bookOrder", request, TransactionResponse.class);
         repository.save(user);
         if (response != null) {
             response.setUser(user);
