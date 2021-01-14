@@ -1,0 +1,15 @@
+{
+  "user" : {
+    "userId": 10,
+    "name": "Anicet Togue",
+    "email": "contact@craftchain.com",
+    "country": "France"
+  },
+  "order" : {
+    "id": 100,
+    "name": "basket",
+    "quantity": 1,
+    "price": 200.0
+  },
+  "payment" : {}
+}
