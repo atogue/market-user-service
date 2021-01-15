@@ -4,17 +4,18 @@ import org.craftchain.market.user.common.TransactionRequest;
 import org.craftchain.market.user.common.TransactionResponse;
 import org.craftchain.market.user.entity.User;
 import org.craftchain.market.user.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
 public class UserService {
 
-    @Autowired
-    private UserRepository repository;
-    @Autowired
-    private RestTemplate template;
+    private final UserRepository repository;
+    private final RestTemplate template;
+    public UserService(UserRepository repository, RestTemplate template) {
+        this.repository = repository;
+        this.template = template;
+    }
 
     public TransactionResponse createUser(TransactionRequest request) {
         User user = request.getUser();
