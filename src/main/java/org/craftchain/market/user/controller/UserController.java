@@ -1,5 +1,7 @@
 package org.craftchain.market.user.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import lombok.extern.slf4j.Slf4j;
 import org.craftchain.market.user.common.TransactionRequest;
 import org.craftchain.market.user.common.TransactionResponse;
 import org.craftchain.market.user.service.UserService;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/user")
+@Slf4j
 public class UserController {
 
     private final UserService service;
@@ -19,6 +22,12 @@ public class UserController {
 
     @PostMapping("/create")
     public TransactionResponse createUser(@RequestBody TransactionRequest request) {
-        return service.createUser(request);
+        TransactionResponse response = null;
+        try {
+            response = service.createUser(request);
+        } catch (JsonProcessingException err) {
+            log.error("UserService createUser ERROR : ", err);
+        }
+        return response;
     }
 }
