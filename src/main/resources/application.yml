@@ -8,4 +8,6 @@ spring:
       enabled: true
   application:
     name: USER-SERVICE
-
+logging:
+  file:
+    name: /Users/anicet/project/hands-lab-java/archive/microservice.log
